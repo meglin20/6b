@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Cinnamon Bun Bun</title>
+		<meta charset="UTF-8">
+  		<meta name="description" content="Cinnamon Bun Bun Shop Website that allows online order">
+        <link href="styles.css" type="text/css" rel="stylesheet" />	
+        <script src="script.js"></script>
+	</head>
+	<body onload="loadCart()">
+        <div id="page">
+            <div class="title-menu">
+                <!-- Title -->
+                <div class= "website-title">
+                    <h1>Cinnamon Bun Bun</h1>
+                </div>
+                <!-- nav bar -->
+                <div class="menu-holder">
+                    <nav id="header-main-menu">
+                        <ul class="main-menu ">
+                            <li>
+                                <a href="index.html"> Home </a>
+                            </li>
+                            <li>
+                                <a href="product.html">Online Order</a>
+                            </li>
+                            <li>
+                                <a href="cart.html" id="cart-nav">Cart</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- Two-column-layout -->
+            <div class="row">
+                <!-- left column -->
+                <div class="column-1">
+                    <h3>Full Menu</h3>
+                    <!-- cards of each product -->
+                    <a href="product_details.html" onclick="changeImage('img/left-card.jpg');">
+                        <div class="card-1">
+                            <div class="container-0">
+                                 <!-- image from https://pixabay.com/images/search/cinnamon%20bun/ -->
+                                <img src="img/left-card.jpg" alt="picture of Original Cinnamon Buns" width="450">
+                            </div>
+                            <div class="container-1">
+                                <h4 class="card-product-name"><b>Original Cinnamon Buns</b></h4>
+                                <p class="card-product-desc">Classic original cinnamon buns will satisfy your cravings for delicious and freshly produced dessert.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="product_details.html" onclick="changeImage('img/middle-card.jpg');">
+                        <div class="card-1">
+                            <div class="container-0">
+                                 <!-- image from https://pixabay.com/images/search/cinnamon%20bun/ -->
+                                <img src="img/middle-card.jpg" alt="picture of Vanilla Cinnamon Buns" width="450">
+                            </div>
+                            <div class="container-1">
+                            <h4 class="card-product-name"><b>Vanilla Cinnamon Buns</b></h4>
+                            <p class="card-product-desc">Vanilla-flavored cinnamon buns will satisfy your cravings for delicious and freshly produced  dessert.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="product_details.html" onclick="changeImage('img/right-card.jpg');">
+                        <div class="card-1">
+                            <div class="container-0">
+                                 <!-- image from https://pixabay.com/images/search/cinnamon%20bun/ -->
+                                <img src="img/right-card.jpg" alt="picture of Pumpkin Spice Bun" width="450">
+                            </div>
+                            <div class="container-1">
+                                <h4 class="card-product-name"><b>Pumpkin Spice Buns</b></h4>
+                                <p>Pumpkin-spice-flavored cinnamon buns will satisfy your cravings for delicious and freshly produced dessert.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+		</div>
+	</body>
+</html>

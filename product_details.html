@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Cinnamon Bun Bun</title>
+		<meta charset="UTF-8">
+  		<meta name="description" content="Cinnamon Bun Bun Shop Website that allows online order">
+        <link href="styles.css" type="text/css" rel="stylesheet" />	
+        <script src="script.js"></script>
+	</head>
+	<body onload="onLoad(); loadCart();">
+        <div id="page">
+            <div class="title-menu">
+                <!-- Title -->
+                <div class= "website-title">
+                    <h1>Cinnamon Bun Bun</h1>
+                </div>
+                <!-- nav bar -->
+                <div class="menu-holder">
+                    <nav id="header-main-menu">
+                        <ul class="main-menu ">
+                            <li>
+                                <a href="index.html"> Home </a>
+                            </li>
+                            <li>
+                                <a href="product.html"> Online Order</a>
+                            </li>
+                            <li>
+                                <a href="cart.html" id="cart-nav">Cart</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- product detail card -->
+            <div class="prod-det">
+                <div class="card-10">
+                    <!-- image of the product on the left-->
+                    <!-- image from https://pixabay.com/images/search/cinnamon%20bun/ -->
+                    <div class="container-3">
+                        <img id="image" width="600"> 
+                    </div>
+                    <!-- description of the product on the right-->
+                    <div class="container-4">
+                        <h3 id="card-product-name"><b>Original Cinnamon Buns</b></h3>
+                        <h4 id="card-product-desc">Classic original cinnamon buns will satisfy your cravings for delicious and freshly produced dessert.</h4>
+                        <!-- glazing dropdown -->
+                        <div class="dropdown">
+                            <label for="dropbtn1">Glazing</label>
+                            <button id="dropbtn1">None</button>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="change('None')">None</a>
+                                <a href="#" onclick="change('Sugar-milk')">Sugar-milk</a>
+                                <a href="#" onclick="change('Vanilla-mik')">Vanilla-milk</a>
+                                <a href="#" onclick="change('Double-chocolate')">Double-chocolate </a>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <!-- amount dropdown -->
+                        <div class="dropdown">
+                            <label for="dropbtn2">Number of Rolls</label>
+                            <button id="dropbtn2">1</button>
+                            <div class="dropdown-content">
+                              <a href="#" onclick="changeAmt('1')">1</a>
+                              <a href="#" onclick="changeAmt('3')">3</a>
+                              <a href="#" onclick="changeAmt('6')">6</a>
+                              <a href="#" onclick="changeAmt('12')">12</a>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="btn-container-place-order">
+                            <button type="button" class="btn-place-order"><a href="product.html" onclick="addToCart()" >Total: 6.99 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Place Order </a> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</body>
+</html>

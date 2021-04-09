@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Cinnamon Bun Bun</title>
+		<meta charset="UTF-8">
+  		<meta name="description" content="Cinnamon Bun Bun Shop Website that allows online order">
+        <link href="styles.css" type="text/css" rel="stylesheet" />
+        <script src="script.js"></script>
+	</head>
+	<body onload="loadCart(); showCart();">
+        <div id="page">
+            <div class="title-menu">
+                <!-- Title -->
+                <div class= "website-title">
+                    <h1>Cinnamon Bun Bun</h1>
+                </div>
+                <!-- nav bar -->
+                <div class="menu-holder">
+                    <nav id="header-main-menu">
+                        <ul class="main-menu ">
+                            <li>
+                                <a href="index.html"> Home </a>
+                            </li>
+                            <li>
+                                <a href="product.html"> Online Order</a>
+                            </li>
+                            <li>
+                                <a href="cart.html" id="cart-nav">Cart</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div id="cart-div">
+                <!-- Order -->
+                <div id="cart-card">
+                    <h3>Cart</h3>
+                    <!-- <div class="cart-mini-card">
+                        <div class="words">
+                            <h5 class="order-name"><b>Pumpkin Spice Buns</b></h5>
+                            <p class="card-glazing">Sugar Milk</p>
+                            <p class="card-rolls">6 rolls</p>
+                            <div class="btn-container-1">
+                                <button class="btn-2-1">Edit</button>
+                                <button class="btn-2-2">Delete</button>
+                            </div>
+                        </div>
+                        <div class="cost">
+                            <h5 class="amount"><b>6.99</b></h5>
+                        </div>
+                    </div> -->
+                </div>
+
+                <svg height="50">
+                    <line x1="530" y1="0" x2="600" y2="0" />
+                </svg>
+                <div id="column-2">
+                    <!-- address -->
+                    <div class="cart-mini-card-3">
+                        <h4>Address</h4>
+                        <div class="words">
+                            <p class="card-glazing">14111 Saratoga Sunnyvale Rd.</p>
+                            <p class="card-rolls">Pittsburgh, PA 15122</p>
+                        </div>
+                    </div>
+                    <!-- total -->
+                    <div class="cart-mini-card-3">
+                        <h4>Total</h4>
+                        <div class="words">
+                            <h5 class="order-name"><b>Subtotal</b></h5>    
+                        </div>
+                        <div class="cost-1">
+                            <h5 class="amount"><b>14.99</b></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <!-- checkout -->
+            <div class="cart-checkout">
+                <div class="btn-container-10">
+                    <button type="button" class="btn-3-1">Place Order</button>
+                    <button type="button" class="btn-3-2">Cancel Order</button>  
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
