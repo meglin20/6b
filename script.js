@@ -50,7 +50,6 @@ function onLoad() {
     }else{
         new_cinnamon = new PumpkinSpice("None", "1");
     }
-    // alert(new_cinnamon.glazing);
     let img = document.getElementById("image");
     let food = new_cinnamon;
     img.setAttribute("src", food.image);
@@ -66,9 +65,7 @@ function onLoad() {
     }
     full_list.push(new_cinnamon);
     sessionStorage.setItem("cinnamon_array", JSON.stringify(full_list));
-    // alert(new_cinnamon.glazing);
     for(var i = 0; i < full_list.length; i++){
-        // alert(full_list[i].name);
     }
 }
 
@@ -112,20 +109,6 @@ function addToCart(){
     food.id = cinnamon_num;
     sessionStorage.setItem("cinnamon_array", JSON.stringify(full_list));
 
-    // var full_list = [];
-    // if(sessionStorage.getItem('cinnamon_array')){
-    //     full_list = JSON.parse(sessionStorage.getItem('cinnamon_array'));
-    // }
-    // full_list.push(new_cinnamon);
-    // sessionStorage.setItem("cinnamon_array", JSON.stringify(full_list));
-    // alert(new_cinnamon.glazing);
-    // sessionStorage.setItem('cinnamon_num', cinnamon_num);
-    // alert(cinnamon_num);
-    // for(var i = 0; i < full_list.length; i++){
-    //     alert(i.glazing);
-    // }
-    // alert(full_list);
-
     
 
 
@@ -144,6 +127,7 @@ function loadCart() {
     }
 }
 
+//show the cart items by adding children nodes and looping through the array of cinnamon items
 function showCart(){
     let full_list = JSON.parse(sessionStorage.getItem("cinnamon_array"));
     if (full_list != null){
@@ -154,7 +138,6 @@ function showCart(){
             var newDiv = document.createElement("div");
             newDiv.className = "cart-mini-card";
             newDiv.num = full_list[i].id.toString();
-            alert(newDiv.num);
             var smallDiv = document.createElement("div");
             smallDiv.className = "words";
             var title = document.createElement("h5");
@@ -169,9 +152,6 @@ function showCart(){
             amount.className = "card-rolls";
             amount.innerHTML = "amount: " + full_list[i].amount;
             smallDiv.appendChild(amount);
-            // title.className = "h3";
-            // divtest.innerHTML = "new div";
-            // divtest.innerHTML = "new div";
             var container = document.createElement("div");
             container.className = "btn-container-1";
             var button1 = document.createElement("button");
@@ -200,13 +180,13 @@ function showCart(){
             objTo.appendChild(newDiv)
         }
     }
-
 }
 
+//remove the children node of the cart item that was clicked on by looping through the array and div elements to find the one matching the id passed in fromt the parameter
 function remove(num){
     var list = JSON.parse(sessionStorage.getItem("cinnamon_array"));
     for(let i = 0; i < list.length; i++){
-        if(list[i].id === num){
+        if(list[i].id === num+1){
             list.splice[i,1];
         }
     }
@@ -218,5 +198,5 @@ function remove(num){
             d.removeChild(d_nested[1]);
         }
     }
-
+    addToCart();
 }
