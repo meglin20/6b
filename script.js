@@ -98,16 +98,12 @@ function changeAmt(description)
 //change the text for the cart section on the nav bar to indicate how many items are added to cart
 function addToCart(){
 
-    var cinnamon_num = 0;
-    if(sessionStorage.getItem('cinnamon_num')){
-        cinnamon_num = parseInt(sessionStorage.getItem('cinnamon_num'));
+    var cinnamon_num = JSON.parse(sessionStorage.getItem("cinnamon_array")).length;
+    if(cinnamon_num !== 0){
+        var full_list = JSON.parse(sessionStorage.getItem("cinnamon_array"));
+        full_list[full_list.length - 1].id = cinnamon_num;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+        sessionStorage.setItem("cinnamon_array", JSON.stringify(full_list));
     }
-    cinnamon_num += 1;
-    sessionStorage.setItem('cinnamon_num', cinnamon_num);
-    var full_list = JSON.parse(sessionStorage.getItem("cinnamon_array"));
-    let food = full_list[full_list.length - 1];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-    food.id = cinnamon_num;
-    sessionStorage.setItem("cinnamon_array", JSON.stringify(full_list));
 
     
 
@@ -116,14 +112,18 @@ function addToCart(){
 
 //load the cart with product info
 function loadCart() {
-    var food = sessionStorage.getItem("cinnamon_num");
-    if (food === null){
+    var full_list = JSON.parse(sessionStorage.getItem("cinnamon_array"));
+    console.log(full_list);
+    if (full_list.length !== 0){
+        var food = full_list[full_list.length - 1].id;
+        if(food === '1'){
+            document.getElementById("cart-nav").innerHTML= "Cart (" + food + " new item)";
+        }
+        else{
+            document.getElementById("cart-nav").innerHTML= "Cart (" + food + " new items)";
+        }
+    }else{
         document.getElementById("cart-nav").innerHTML= "Cart(0 new item)";
-    }else if(food === '1'){
-        document.getElementById("cart-nav").innerHTML= "Cart (" + food + " new item)";
-    }
-    else{
-        document.getElementById("cart-nav").innerHTML= "Cart (" + food + " new items)";
     }
 }
 
@@ -158,9 +158,6 @@ function showCart(){
             button1.className = document.createElement("btn-2-1");
             button1.innerHTML = "Edit";
             var link = document.createElement ("a");
-            link.href = "product_details.html";
-            button1.appendChild(link);
-            button1.onclick = "Edit";
             container.appendChild(button1);
             var button2 = document.createElement("button");
             button2.onclick = function(){
@@ -186,17 +183,23 @@ function showCart(){
 function remove(num){
     var list = JSON.parse(sessionStorage.getItem("cinnamon_array"));
     for(let i = 0; i < list.length; i++){
+        console.log(i);
+        console.log(list[i].id);
         if(list[i].id === num+1){
-            list.splice[i,1];
+            console.log("hi");
+            list.splice(i,1);
         }
     }
+    console.log(list);
     sessionStorage.setItem("cinnamon_array", JSON.stringify(list));
     let d_nested = document.getElementsByClassName("cart-mini-card");
     for(let i = 0; i < d_nested.length; i++){
         if(d_nested[i].num == num+1){
+            console.log("hi");
             let d = document.getElementById("cart-card");
-            d.removeChild(d_nested[1]);
+            d.removeChild(d_nested[i]);
         }
     }
     addToCart();
+    location.reload();
 }

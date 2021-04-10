@@ -312,7 +312,7 @@ body {
     padding: 10px;
     margin-right: 1px;
     float: left;
-    width: 60%;
+    width: 90%;
     box-shadow: 2px 4px 8px 2px rgba(0.1,0.1,0.1,0.2);
 }
 
@@ -374,7 +374,8 @@ li {
 
 .card-1{
     margin: 15px;
-    width: 800px;
+    width: 80%;
+    /* width: 800px; */
     height:300px;
     background-color:white;
     box-shadow: 0 4px 8px 0 rgba(0.1,0.1,0.1,0.2);
@@ -435,6 +436,9 @@ a {
     width: 400px; 
     margin-left: auto;
     margin-right: auto;
-} 
+}
 
+.prod-img{
+    width: 100%;
+}
 
