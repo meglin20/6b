@@ -2,33 +2,33 @@
 function Original(glazing, amount) {
     this.glazing = glazing;
     this.amount = amount;
+    this.id = 0;
     this.name = "Original Cinnamon Roll";
     this.paragraph = "Classic original cinnamon buns will satisfy your cravings for delicious and freshly produced dessert.";
     this.image_alt = 'original cinnamon roll';
     this.image = 'img/left-card.jpg';
-    this.id = 0;
 }
 
 //vanilla cinnamon roll constructor 
 function Vanilla(glazing, amount) {
     this.glazing = glazing;
     this.amount = amount;
+    this.id = 0;
     this.name = "Vanilla Cinnamon Roll";
     this.paragraph = "Sweet Vanilla cinnamon buns will satisfy your cravings for delicious and freshly produced dessert.";
     this.image_alt = 'vanilla flavored cinnamon roll';
     this.image = 'img/middle-card.jpg';
-    this.id = 0;
 }
 
 //pumpkin spice cinnamon roll constructor
 function PumpkinSpice(glazing, amount) {
     this.glazing = glazing;
     this.amount = amount;
+    this.id = 0;
     this.name = "Pumpkin Spice Cinnanmon";
     this.paragraph = "Seasonal Pumpkin Spice buns will satisfy your cravings for delicious and freshly produced dessert.";
     this.image_alt = 'pumpkin spice cinnamon roll';
     this.image = 'img/right-card.jpg';
-    this.id = 0;
 }
 
 //display_cart
@@ -98,29 +98,28 @@ function changeAmt(description)
 //change the text for the cart section on the nav bar to indicate how many items are added to cart
 function addToCart(){
 
-    var cinnamon_num = JSON.parse(sessionStorage.getItem("cinnamon_array")).length;
+    var cinnamon_num = (JSON.parse(sessionStorage.getItem("cinnamon_array"))).length;
     if(cinnamon_num !== 0){
         var full_list = JSON.parse(sessionStorage.getItem("cinnamon_array"));
         full_list[full_list.length - 1].id = cinnamon_num;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
         sessionStorage.setItem("cinnamon_array", JSON.stringify(full_list));
     }
-
-    
-
-
 }
 
 //load the cart with product info
 function loadCart() {
     var full_list = JSON.parse(sessionStorage.getItem("cinnamon_array"));
-    console.log(full_list);
     if (full_list.length !== 0){
-        var food = full_list[full_list.length - 1].id;
-        if(food === '1'){
-            document.getElementById("cart-nav").innerHTML= "Cart (" + food + " new item)";
+        
+        var food = (full_list[full_list.length - 1]).id;
+        if(food === 1){
+            document.getElementById("cart-nav").innerHTML= "Cart (" + food.toString() + " new item)";
+        }else if (food === 0){
+            food = full_list.length - 1;
+            document.getElementById("cart-nav").innerHTML= "Cart (" + food.toString() + " new item)";
         }
         else{
-            document.getElementById("cart-nav").innerHTML= "Cart (" + food + " new items)";
+            document.getElementById("cart-nav").innerHTML= "Cart (" + food.toString() + " new items)";
         }
     }else{
         document.getElementById("cart-nav").innerHTML= "Cart(0 new item)";
@@ -132,7 +131,6 @@ function showCart(){
     let full_list = JSON.parse(sessionStorage.getItem("cinnamon_array"));
     if (full_list != null){
         for(let i = 0; i < full_list.length; i++){
-            console.log(i.name);
             
             var objTo = document.getElementById('cart-card');
             var newDiv = document.createElement("div");
@@ -182,20 +180,11 @@ function showCart(){
 //remove the children node of the cart item that was clicked on by looping through the array and div elements to find the one matching the id passed in fromt the parameter
 function remove(num){
     var list = JSON.parse(sessionStorage.getItem("cinnamon_array"));
-    for(let i = 0; i < list.length; i++){
-        console.log(i);
-        console.log(list[i].id);
-        if(list[i].id === num+1){
-            console.log("hi");
-            list.splice(i,1);
-        }
-    }
-    console.log(list);
+    list.splice(num,1);
     sessionStorage.setItem("cinnamon_array", JSON.stringify(list));
     let d_nested = document.getElementsByClassName("cart-mini-card");
     for(let i = 0; i < d_nested.length; i++){
         if(d_nested[i].num == num+1){
-            console.log("hi");
             let d = document.getElementById("cart-card");
             d.removeChild(d_nested[i]);
         }
